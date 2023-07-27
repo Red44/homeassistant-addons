@@ -1,7 +1,7 @@
-name : "Reverse proxy tunnel from ekzhang [repo:bore]"
+name : "Bore Tunnel"
 version : "0.0.1"
 slug: "ekzhang-bore"
-description: "Reverse proxy tunnel from ekzhang"
+description: "A Reverse proxy tunnel port to port for Home Assistant"
 arch :
   - aarch64
   - amd64
@@ -23,3 +23,5 @@ schema:
   ip: str
   outgoing_port_reverse_proxy: int
   secret: str
+
+init: false
