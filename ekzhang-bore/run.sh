@@ -24,7 +24,7 @@ else
     bashio::log.warning "Using default port ${PORT}"
 fi
 
-if basio::config.has_value 'outgoing_port_reverse_proxy'; then
+if bashio::config.has_value 'outgoing_port_reverse_proxy'; then
     OUTGOING_PORT_REVERSE_PROXY=$(bashio::config 'outgoing_port_reverse_proxy')
     bashio::log.info "Using outgoing port ${OUTGOING_PORT_REVERSE_PROXY} for reverse proxy"
 else
