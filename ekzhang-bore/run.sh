@@ -58,3 +58,5 @@ else
     bashio::log.info "Ensure that on $IP a bore server is running with secret [bore server --secret YOUR_SECRET]"
     bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$IP" --secret "$SECRET"
 fi
+
+bashio::exit.nok "The client has stopped or was not able to connect to the server"
