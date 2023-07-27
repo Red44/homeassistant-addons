@@ -49,7 +49,7 @@ else
 fi
 
 
-bashio::log.green "Starting bore"
+bashio::log.info "Starting bore"
 
 if [ "$NO_SECRET" = true ]; then
     bashio::log.info "Ensure that on $IP a bore server is running [bore server]"
