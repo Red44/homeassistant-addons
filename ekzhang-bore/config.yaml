@@ -1,0 +1,27 @@
+name : "Bore Tunnel"
+version : "0.0.1"
+slug: "ekzhang-bore"
+description: "A Reverse proxy tunnel port to port for Home Assistant"
+arch :
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+url: "https://github.com/Red44/homeassistant-addons"
+boot: "auto"
+host_network: true
+homeassistant_api: true
+
+options:
+  port: 8123
+  outgoing_port_reverse_proxy: 8123
+  ip: ""
+  secret: ""
+schema:
+  port: int
+  ip: str
+  outgoing_port_reverse_proxy: int
+  secret: str
+
+init: false
