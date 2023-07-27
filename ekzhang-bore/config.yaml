@@ -15,9 +15,11 @@ homeassistant_api: true
 
 options:
   port: 8123
-  ip: "example.com"
+  outgoing_port_reverse_proxy: 8123
+  ip: ""
   secret: ""
 schema:
   port: int
   ip: str
+  outgoing_port_reverse_proxy: int
   secret: str
