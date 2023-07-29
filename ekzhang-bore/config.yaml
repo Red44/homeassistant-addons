@@ -17,10 +17,16 @@ options:
   port: 8123
   outgoing_port_reverse_proxy: 8123
   ip: ""
+  fallback_ip: ""
+  retries: 5
+  relentless: false
   secret: ""
 schema:
   port: int
   ip: str
+  fallback_ip: str
+  retries: int
+  relentless: bool
   outgoing_port_reverse_proxy: int
   secret: str
 
