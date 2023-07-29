@@ -24,6 +24,9 @@ outside your local network. Like turning on your heater when you are on your way
 port: 8123
 outgoing_port_reverse_proxy: 80
 ip: "ha.myserver.io"
+fallback_ip: "backup.ha.myserver.io" # If the ip is not reachable, this ip will be used
+retries: 5                          
+relentless: false                  # If true, will keep trying to connect to the server even if it fails
 secret: "my-super-secure-password"
 ```
 
