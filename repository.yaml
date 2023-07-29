@@ -1,4 +1,5 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+
 name: 'Reds add-on repository'
 url: 'https://github.com/Red44/homeassistant-addons'
 maintainer: Red44 (Jakob)  <red44.public@gmail.com>
