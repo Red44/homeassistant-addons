@@ -14,7 +14,7 @@ from anywhere.
 Bore is used in this case to forward your traffic. So that you could for example use the home
 assistant app to connect to your home assistant app
 outside your local network. Like turning on your heater when you are on your way home.
-![network.png](assets/network.png)
+![network.png](https://github.com/Red44/homeassistant-addons/blob/main/ekzhang-bore/assets/network.png?raw=true)
 
 ## Installation
 
@@ -47,7 +47,7 @@ For further information see the [bore repository](https://github.com/ekzhang/bor
 ----------------------------------
 Run this plugin with watchdog enabled and start on boot without auto update.
 
-![settings.png](assets/settings.png)
+![settings.png](https://github.com/Red44/homeassistant-addons/blob/main/ekzhang-bore/assets/settings.png?raw=true)
 
 ## Support
 
