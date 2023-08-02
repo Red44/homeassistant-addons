@@ -12,7 +12,7 @@ RUN apk add musl  \
     musl-dev  \
     wget \
     && \
-    git clone https://github.com/ekzhang/bore
+    git clone https://github.com/Red44/bore-exitcode-1
 
 RUN curl -o rustup.sh -sSf https://sh.rustup.rs &&  \
     chmod +x rustup.sh  \
