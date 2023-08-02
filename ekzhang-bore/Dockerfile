@@ -17,11 +17,11 @@ RUN curl -o rustup.sh -sSf https://sh.rustup.rs &&  \
     chmod +x rustup.sh  \
     && ./rustup.sh -y --default-toolchain stable \
     && rm rustup.sh \
-    && cd bore-exitcdoe-1  \
+    && cd bore-exitcode-1  \
     && $HOME/.cargo/bin/cargo build --release  \
-    && cp target/release/bore-exitcdoe-1  /usr/bin/bore  \
+    && cp target/release/bore-exitcode-1  /usr/bin/bore  \
     && cd ..  \
-    && rm -rf bore-exitcdoe-1
+    && rm -rf bore-exitcode-1
 
 COPY run.sh /
 RUN chmod a+x /run.sh
