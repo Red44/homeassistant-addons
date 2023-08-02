@@ -1,5 +1,5 @@
 name : "Bore Tunnel"
-version : "0.0.8"
+version : "0.0.9"
 slug: "ekzhang-bore"
 description: "A Reverse proxy tunnel port to port for Home Assistant"
 arch :
