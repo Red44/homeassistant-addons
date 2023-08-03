@@ -19,7 +19,7 @@ RUN curl -o rustup.sh -sSf https://sh.rustup.rs &&  \
     && rm rustup.sh \
     && cd bore-home-assistant  \
     && $HOME/.cargo/bin/cargo build --release  \
-    && cp target/release/bore-home-assistant /usr/bin/bore  \
+    && cp target/release/bore /usr/bin/bore  \
     && cd ..  \
     && rm -rf bore-home-assistant
 
