@@ -70,29 +70,17 @@ else
   RELENTLESS=false
 fi
 
+if [ "$NO_SECRET" = true ]; then
+  bashio::log.info "Ensure that on $IP (+fallback)a bore server is running [bore server]"
+
+else
+  bashio::log.info "Ensure that on $IP (+fallback)a bore server is running with secret [bore server --secret YOUR_SECRET]"
+fi
 bashio::log.info "Starting bore"
 
-while [[ $RETRIES -gt 0 ]] || [[ $RELENTLESS = true ]]; do
   if [ "$NO_SECRET" = true ]; then
-    bashio::log.info "Ensure that on $IP (+fallback)a bore server is running [bore server]"
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$IP" &
-
+    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --fallback_ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
   else
-    bashio::log.info "Ensure that on $IP (+fallback)a bore server is running with secret [bore server --secret YOUR_SECRET]"
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$IP" --secret "$SECRET" &
+    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --secret "$SECRET" --fallback_ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
   fi
 
-  bashio::log.error "Main IP not available, attempting fallback IP"
-  bashio::log.info "Attempting fallback bore server connection"
-  if [ "$NO_SECRET" = true ]; then
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" &
-  else
-   bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --secret "$SECRET" &
-  fi
-  bashio::log.error "Fallback IP not available, retires left $RETRIES"
-  if [ $RELENTLESS = false ]; then
-    RETRIES=$((RETRIES - 1))
-  fi
-done
-
-bashio::exit.nok "The client has stopped or was not able to connect to the server"
