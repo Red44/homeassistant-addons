@@ -79,8 +79,8 @@ fi
 bashio::log.info "Starting bore"
 
   if [ "$NO_SECRET" = true ]; then
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --fallback_ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
+    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --fallback-ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
   else
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --secret "$SECRET" --fallback_ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
+    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --secret "$SECRET" --fallback-ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
   fi
 
