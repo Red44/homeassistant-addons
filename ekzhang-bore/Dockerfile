@@ -11,17 +11,17 @@ RUN apk add musl  \
     musl-dev  \
     wget \
     && \
-    git clone https://github.com/Red44/bore-exitcode-1
+    git clone https://github.com/Red44/bore-home-assistant
 
 RUN curl -o rustup.sh -sSf https://sh.rustup.rs &&  \
     chmod +x rustup.sh  \
     && ./rustup.sh -y --default-toolchain stable \
     && rm rustup.sh \
-    && cd bore-exitcode-1  \
+    && cd bore-home-assistant  \
     && $HOME/.cargo/bin/cargo build --release  \
-    && cp target/release/bore-exitcode-1  /usr/bin/bore  \
+    && cp target/release/bore-home-assistant /usr/bin/bore  \
     && cd ..  \
-    && rm -rf bore-exitcode-1
+    && rm -rf bore-home-assistant
 
 COPY run.sh /
 RUN chmod a+x /run.sh
