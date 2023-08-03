@@ -67,7 +67,12 @@ if bashio::config.has_value 'relentless'; then
   bashio::log.info "Relentless mode is $RELENTLESS"
 else
   bashio::log.warning 'Relentlessness not specified default will be set to false'
-  RELENTLESS=false
+fi
+
+if [ "$RELENTLESS" = true ]; then
+  RELENTLESS="--relentless"
+else
+  RELENTLESS=""
 fi
 
 if [ "$NO_SECRET" = true ]; then
@@ -78,9 +83,8 @@ else
 fi
 bashio::log.info "Starting bore"
 
-  if [ "$NO_SECRET" = true ]; then
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --fallback-ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
-  else
-    bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$FALLBACK_IP" --secret "$SECRET" --fallback-ip "$FALLBACK_IP" --retires "$RETRIES" --relentless "$RELENTLESS"
-  fi
-
+if [ "$NO_SECRET" = true ]; then
+  bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$IP" --fallback-ip "$FALLBACK_IP" --retries "$RETRIES" "$RELENTLESS"
+else
+  bore local $PORT --port $OUTGOING_PORT_REVERSE_PROXY --to "$IP" --secret "$SECRET" --fallback-ip "$FALLBACK_IP" --retries "$RETRIES" "$RELENTLESS"
+fi
